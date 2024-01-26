@@ -11,22 +11,25 @@
     <!-- login form -->
     <div id="header">
       <h1 id="logo">Logo</h1>
-      <form id="login-form">
+      <form id="login-form" class="hidden">
         <h2>log in here!</h2>
         <input
           required
-          id="login-form-id"
+          id="login-id"
           type="text"
           placeholder="Write your name"
         />
         <input
           required
-          id="login-form-password"
+          id="login-password"
           type="password"
+          minlength="6"
+          maxlength="12"
           placeholder="Write your password"
         />
         <input type="submit" value="Log In" />
       </form>
+      <h2 id="greeting" class="hidden"></h2>
     </div>
 
     <!-- main -->
@@ -54,5 +57,6 @@
       </div>
     </div>
     <script src="js/index.js"></script>
+    <script src="js/login.js"></script>
   </body>
 </html>
