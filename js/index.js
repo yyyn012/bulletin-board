@@ -1,12 +1,12 @@
 //    총 게시글 수
-let totalPage = 1000;
+let totalPage = 100;
 //  한 페이지 당 출력되는 게시글 갯수
-let page_num = 20;
+let page_num = 5;
 //   한번에 출력될 수 있는 최대 블록 수
 // ex ) [1][2][3][4][5] -> 블록
-let block_num = 10;
+let block_num = 5;
 // 블록의 총 수를 계산한다.
-let total_block = totalPage % 20 == 0 ? totalPage / 20 : totalPage / 20 + 1;
+let total_block = totalPage % 5 == 0 ? totalPage / 5 : totalPage / 5 + 1;
 // 현재 블록 위치를 알려준다
 let current_block = 1;
 /*
