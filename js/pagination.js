@@ -5,15 +5,9 @@ let pageNum = 5;
 let blockNum = 5;
 let totalBlock = totalPage % 5 == 0 ? totalPage / 5 : totalPage / 5 + 1;
 let currentBlock = 1;
-
-// 페이지에 맞게 게시글 데이터 출력하는 함수
-// function pagePrint(block) {
-//   tbody.remove();
-// }
-
 let data = new Array();
 
-//    게시글 데이터를 담고 있는 객체를 1000개 추가한다.
+//    게시글 데이터를 담고 있는 객체를 1000개 추가
 for (let i = 1; i <= totalPage; i++) {
   data[i] = {
     notice_num: i,
@@ -25,7 +19,6 @@ for (let i = 1; i <= totalPage; i++) {
   };
 }
 // 게시글 데이터 출력하기
-// 매개변수 : 선택 블럭
 function pagePrint(block) {
   // 초기화
   // 게시글 title 제외하고 모두 제거
@@ -40,9 +33,6 @@ function pagePrint(block) {
   let start = totalPage - pageNum * (block - 1);
   for (let i = start; i >= 1 && i > start - pageNum; i--) {
     // 게시글 데이터 가져와서 게시글 요소 생성 및 추가
-    // 번호, 제목, 작성자, 작성일, 조회수, 좋아요
-    // data[i].notice_num data[i].title data[i].writer data[i].date_created data[i].Lookkup_num data[i].like
-
     let post = document.createElement("ul");
     post.className = "board_row";
     post.className = "data_row";
@@ -72,7 +62,6 @@ function pagePrint(block) {
 }
 
 // 블럭 출력하기
-// 매개변수 : 가장 앞에 오는 블럭
 function blockPrint(frontBlock) {
   currentBlock = frontBlock;
   const beforeBtn = document.querySelector(".before_move");
@@ -84,7 +73,7 @@ function blockPrint(frontBlock) {
     beforeBtn.style.visibility = "visible";
   }
 
-  // 다음으로 갈 블럭이 없으면
+  // 다음으로 갈 블럭이 없을 때 nextBtn 숨기기
   if (frontBlock + blockNum >= totalBlock) {
     nextBtn.style.visibility = "hidden";
   } else {
@@ -102,14 +91,14 @@ function blockPrint(frontBlock) {
   for (let i = frontBlock; i <= totalBlock && i < frontBlock + blockNum; i++) {
     console.log("add element");
 
-    // 버튼을 생성한다.s
+    // 버튼 생성
     let pageButton = document.createElement("button");
     pageButton.textContent = i;
-    // 버튼을 클릭하면 게시글이 변경되는 이벤트 추가
+    // 버튼 클릭 시 게시글 변경
     pageButton.addEventListener("click", function (event) {
       pagePrint(i);
     });
-    // 블럭에 추가한다.
+    // blockBox에 추가
     blockBox.appendChild(pageButton);
   }
 }
